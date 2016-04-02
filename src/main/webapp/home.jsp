@@ -25,12 +25,12 @@
         <c:choose>
             <c:when test="${sessionScope.error != null}">
                 <div class="alert alert-danger col-sm-offset-3 col-sm-7">
-                    <strong>${sessionScope.error}</strong>${sessionScope.error}
+                    ${sessionScope.error}
                 </div>
             </c:when>
             <c:when test="${sessionScope.success != null}">
                 <div class="alert alert-success col-sm-offset-3 col-sm-7">
-                    <strong>${sessionScope.success}</strong>${sessionScope.success}
+                    ${sessionScope.success}
                 </div>
             </c:when>
         </c:choose>
