@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package io.github.jass2125.atividadepadroescriacional.controller;
+package io.github.jass2125.mat.controller;
 
 import io.github.jass2125.atividadepadroescriacional.core.actions.Action;
 import java.io.IOException;
