@@ -22,12 +22,15 @@
         <br/>
 
 
-        
+
         <h:form prependId="false" class="form-horizontal" role="form">
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nome" />
                 <div class="col-sm-7">
-                    <h:inputText class="form-control" id="nome" value="#{alunoController.aluno.nome}"/>
+                    <h:inputText class="form-control" id="nome" value="#{alunoController.aluno.nome}">
+                        <f:validator validatorId="nome.validador"/>
+                    </h:inputText>
+                    <h:message for="nome" style="red"/>
                 </div>
             </div>
 
@@ -45,7 +48,8 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Date De Nascimento" />
                 <div class="col-sm-7"> 
-                    <!--<h:inputText class="form-control" id="dtNasc" value="#{alunoController.aluno.dtNasc}"/>-->
+                    <!--<f:-->
+                    <h:inputText class="form-control" id="dtNasc" value="#{alunoController.aluno.dtNasc}"/>
                 </div>
             </div>
 
