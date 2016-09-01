@@ -6,13 +6,13 @@
 
 package io.github.jass2125.atividadepadroescriacional.core.dao;
 
-import io.github.jass2125.atividadepadroescriacional.core.entity.Alunx;
+import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
 import io.github.jass2125.atividadepadroescriacional.core.exception.AlunxUnicoException;
 
 /**
  *
  * @author Anderson Souza
  */
-public interface AlunxDao {
-    public void add(Alunx aluno) throws AlunxUnicoException;
+public interface AlunoDao {
+    public void add(Aluno aluno) throws AlunxUnicoException;
 }

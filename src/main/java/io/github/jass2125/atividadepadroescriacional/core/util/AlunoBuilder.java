@@ -6,7 +6,7 @@
 package io.github.jass2125.atividadepadroescriacional.core.util;
 
 import br.com.caelum.stella.validation.CPFValidator;
-import io.github.jass2125.atividadepadroescriacional.core.entity.Alunx;
+import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
 import io.github.jass2125.atividadepadroescriacional.core.exception.AlunaSexoException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.CPFInvalidException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.NomeInvalidoException;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  *
  * @author Anderson Souza
  */
-public class AlunxBuilder {
+public class AlunoBuilder {
 
     private String nome;
     private SexoEnum sexo;
@@ -29,10 +29,10 @@ public class AlunxBuilder {
     private String CPF;
     private String numeroDocumentoMilitar;
 
-    public AlunxBuilder() {
+    public AlunoBuilder() {
     }
 
-    public AlunxBuilder CPFBuilder(String cpf) throws CPFInvalidException {
+    public AlunoBuilder CPFBuilder(String cpf) throws CPFInvalidException {
         try {
             CPFValidator val = new CPFValidator();
             val.assertValid(cpf);
@@ -43,22 +43,22 @@ public class AlunxBuilder {
         }
     }
 
-    public AlunxBuilder dtNascBuilder(Date dtNasc) {
+    public AlunoBuilder dtNascBuilder(Date dtNasc) {
         this.dtNasc = dtNasc;
         return this;
     }
 
-    public AlunxBuilder identidadeBuilder(String identidade) {
+    public AlunoBuilder identidadeBuilder(String identidade) {
         this.identidade = identidade;
         return this;
     }
 
-    public AlunxBuilder nacionalidadeBuilder(NacionalidadeEnum nacionalidade) {
+    public AlunoBuilder nacionalidadeBuilder(NacionalidadeEnum nacionalidade) {
         this.nacionalidade = nacionalidade;
         return this;
     }
 
-    public AlunxBuilder nomeBuilder(String nome) throws NomeInvalidoException {
+    public AlunoBuilder nomeBuilder(String nome) throws NomeInvalidoException {
         Pattern pattern = Pattern.compile("^[a-zA-Zã-ũá-úà-àâ-ûÃ-ŨÁ-ÚÀ-ÙÂ-Û}]+ {1}[a-zA-Z0-9Â-Ûâ-û]+$");
         Matcher matcher = pattern.matcher(nome);
         if (!matcher.find()) {
@@ -75,7 +75,7 @@ public class AlunxBuilder {
      * @throws AlunaSexoException
      * @throws NumeroDocumentoMilitarVazioException
      */
-    public AlunxBuilder numeroDocumentoMilitarBuilder(String numeroDocumentoMilitar) throws AlunaSexoException, NumeroDocumentoMilitarVazioException {
+    public AlunoBuilder numeroDocumentoMilitarBuilder(String numeroDocumentoMilitar) throws AlunaSexoException, NumeroDocumentoMilitarVazioException {
         if (sexo.equals(SexoEnum.FEMININO) && !numeroDocumentoMilitar.trim().isEmpty()) {
             this.numeroDocumentoMilitar = null;
             throw new AlunaSexoException("Mulher nao precisa de documento militar!");
@@ -92,12 +92,12 @@ public class AlunxBuilder {
      * @param sexo
      * @return
      */
-    public AlunxBuilder sexoBuilder(SexoEnum sexo) {
+    public AlunoBuilder sexoBuilder(SexoEnum sexo) {
         this.sexo = sexo;
         return this;
     }
 
-    public Alunx getAlunx() {
-        return new Alunx(nome, sexo, dtNasc, nacionalidade, identidade, CPF, numeroDocumentoMilitar);
+    public Aluno getAlunx() {
+        return new Aluno(nome, sexo, dtNasc, nacionalidade, identidade, CPF, numeroDocumentoMilitar);
     }
 }

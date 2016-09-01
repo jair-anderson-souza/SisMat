@@ -5,15 +5,15 @@
  */
 package io.github.jass2125.atividadepadroescriacional.core.actions;
 
-import io.github.jass2125.atividadepadroescriacional.core.util.AlunxBuilder;
-import io.github.jass2125.atividadepadroescriacional.core.dao.AlunxDao;
-import io.github.jass2125.atividadepadroescriacional.core.dao.AlunxDaoImpl;
-import io.github.jass2125.atividadepadroescriacional.core.entity.Alunx;
-import io.github.jass2125.atividadepadroescriacional.core.exception.AlunxUnicoException;
-import io.github.jass2125.atividadepadroescriacional.core.exception.NumeroDocumentoMilitarVazioException;
+import io.github.jass2125.atividadepadroescriacional.core.dao.AlunoDao;
+import io.github.jass2125.atividadepadroescriacional.core.dao.AlunoDaoImpl;
+import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
 import io.github.jass2125.atividadepadroescriacional.core.exception.AlunaSexoException;
+import io.github.jass2125.atividadepadroescriacional.core.exception.AlunxUnicoException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.CPFInvalidException;
+import io.github.jass2125.atividadepadroescriacional.core.util.AlunoBuilder;
 import io.github.jass2125.atividadepadroescriacional.core.exception.NomeInvalidoException;
+import io.github.jass2125.atividadepadroescriacional.core.exception.NumeroDocumentoMilitarVazioException;
 import io.github.jass2125.atividadepadroescriacional.core.util.NacionalidadeEnum;
 import io.github.jass2125.atividadepadroescriacional.core.util.SexoEnum;
 import java.sql.Date;
@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Anderson Souza
  */
-public class CadastrarAlunxAction implements Action {
+public class CadastrarAlunoAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -38,12 +38,12 @@ public class CadastrarAlunxAction implements Action {
             NacionalidadeEnum nacionalidade = NacionalidadeEnum.valueOf(request.getParameter("nacionalidade"));
             String numeroDocumentoMilitar = request.getParameter("numeroDocumentoMilitar");
 
-            Alunx aluno = new AlunxBuilder().nomeBuilder(nome).CPFBuilder(cpf).
+            Aluno aluno = new AlunoBuilder().nomeBuilder(nome).CPFBuilder(cpf).
                     identidadeBuilder(identidade).sexoBuilder(s).
                     dtNascBuilder(dtNasc).nacionalidadeBuilder(nacionalidade).
                     numeroDocumentoMilitarBuilder(numeroDocumentoMilitar).getAlunx();
 
-            AlunxDao dao = new AlunxDaoImpl();
+            AlunoDao dao = new AlunoDaoImpl();
             dao.add(aluno);
             request.getSession().setAttribute("success", "O cadastro do alunx foi efetuado com sucesso!");
             return "home.jsp";

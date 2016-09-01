@@ -6,7 +6,7 @@
 package io.github.jass2125.atividadepadroescriacional.controller;
 
 import io.github.jass2125.atividadepadroescriacional.core.actions.Action;
-import io.github.jass2125.atividadepadroescriacional.core.actions.CadastrarAlunxAction;
+import io.github.jass2125.atividadepadroescriacional.core.actions.CadastrarAlunoAction;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +19,7 @@ public class ActionFactory {
 
     public static Action getAction(HttpServletRequest request) {
         Map<String, Action> actions = new HashMap<>();
-        actions.put("cadastrarAlunx", new CadastrarAlunxAction());
+        actions.put("cadastrarAlunx", new CadastrarAlunoAction());
         return actions.get(request.getParameter("action"));
     }
 }

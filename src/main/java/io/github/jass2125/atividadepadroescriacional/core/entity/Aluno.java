@@ -9,25 +9,35 @@ import io.github.jass2125.atividadepadroescriacional.core.util.NacionalidadeEnum
 import io.github.jass2125.atividadepadroescriacional.core.util.SexoEnum;
 import java.io.Serializable;
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 /**
  *
  * @author Anderson Souza
  */
-public class Alunx implements Serializable {
-
+@Entity
+public class Aluno implements Serializable {
+    @Id 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nome;
     private SexoEnum sexo;
     private Date dtNasc;
+    @Enumerated(EnumType.STRING)
     private NacionalidadeEnum nacionalidade;
     private String identidade;
     private String CPF;
     private String numeroDocumentoMilitar;
 
-    public Alunx() {
+    public Aluno() {
     }
 
-    public Alunx(String nome, SexoEnum sexo, Date dtNasc,
+    public Aluno(String nome, SexoEnum sexo, Date dtNasc,
             NacionalidadeEnum nacionalidade, String identidade, String CPF, String numeroDocumentoMilitar) {
         this.nome = nome;
         this.sexo = sexo;
