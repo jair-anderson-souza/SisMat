@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.jass2125.atividadepadroescriacional.core.entity;
+package io.github.jass2125.mat.core.entity;
 
 import io.github.jass2125.atividadepadroescriacional.core.util.NacionalidadeEnum;
 import io.github.jass2125.atividadepadroescriacional.core.util.SexoEnum;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -26,17 +29,30 @@ public class Aluno implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @Column(name = "nome", nullable = false, unique = false, length = 40)
     private String nome;
-    private SexoEnum sexo;
-    private Date dtNasc;
+    
     @Enumerated(EnumType.STRING)
+    @Column(name = "sexo", nullable = false, unique = false, length = 20)
+    private SexoEnum sexo;
+    
+    @Temporal(TemporalType.DATE)
+    @Column(name = "dtNasc", nullable = false, unique = false, length = 20)
+    private Date dtNasc;
+    
+    @Enumerated(EnumType.STRING)
+    @Column(name = "nacionalidade", nullable = false, unique = false, length = 20)
     private NacionalidadeEnum nacionalidade;
+    
+    @Column(name = "identidade", nullable = false, unique = false, length = 20)
     private String identidade;
-    private String CPF;
+    
+    @Column(name = "cpf", nullable = false, unique = false, length = 20)
+    private String cpf;
+    
+    @Column(name = "numeroDoDocumentoMilitar", nullable = false, unique = false, length = 20)
     private String numeroDocumentoMilitar;
-
-    public Aluno() {
-    }
 
     public Aluno(String nome, SexoEnum sexo, Date dtNasc, NacionalidadeEnum nacionalidade, String identidade, String CPF) {
         this.nome = nome;
@@ -44,7 +60,10 @@ public class Aluno implements Serializable {
         this.dtNasc = dtNasc;
         this.nacionalidade = nacionalidade;
         this.identidade = identidade;
-        this.CPF = CPF;
+        this.cpf = CPF;
+    }
+
+    public Aluno() {
     }
 
     public Long getId() {
@@ -96,11 +115,11 @@ public class Aluno implements Serializable {
     }
 
     public String getCPF() {
-        return CPF;
+        return cpf;
     }
 
     public void setCPF(String CPF) {
-        this.CPF = CPF;
+        this.cpf = CPF;
     }
 
     public String getNumeroDocumentoMilitar() {
@@ -113,8 +132,7 @@ public class Aluno implements Serializable {
 
     @Override
     public String toString() {
-        return "Aluno{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dtNasc=" + dtNasc + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", CPF=" + CPF + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
+        return "Aluno{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dtNasc=" + dtNasc + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", CPF=" + cpf + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
     }
-    
-    
+
 }

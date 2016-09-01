@@ -5,7 +5,7 @@
  */
 package io.github.jass2125.atividadepadroescriacional.core.service;
 
-import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
+import io.github.jass2125.mat.core.entity.Aluno;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
@@ -18,6 +18,7 @@ import javax.ejb.Stateless;
 public class AlunoService {
     
     public void cadastrarAluno(Aluno aluno){
+        
         
         
         

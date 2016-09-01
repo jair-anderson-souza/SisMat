@@ -6,7 +6,7 @@
 package io.github.jass2125.atividadepadroescriacional.core.actions;
 
 import io.github.jass2125.atividadepadroescriacional.core.dao.AlunoDao;
-import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
+import io.github.jass2125.mat.core.entity.Aluno;
 import io.github.jass2125.atividadepadroescriacional.core.exception.AlunoUnicoException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.CPFInvalidoException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.NomeInvalidoException;

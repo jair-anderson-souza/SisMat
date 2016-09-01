@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package io.github.jass2125.mat.controller;
+package io.github.jass2125.atividadepadroescriacional.core.util;
 
 import io.github.jass2125.atividadepadroescriacional.core.actions.Action;
 import io.github.jass2125.atividadepadroescriacional.core.actions.CadastrarAlunoAction;
