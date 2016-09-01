@@ -110,4 +110,11 @@ public class Aluno implements Serializable {
     public void setNumeroDocumentoMilitar(String numeroDocumentoMilitar) {
         this.numeroDocumentoMilitar = numeroDocumentoMilitar;
     }
+
+    @Override
+    public String toString() {
+        return "Aluno{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dtNasc=" + dtNasc + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", CPF=" + CPF + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
+    }
+    
+    
 }

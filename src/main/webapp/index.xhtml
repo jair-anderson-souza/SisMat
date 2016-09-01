@@ -20,41 +20,50 @@
         <br/>
         <br/>
         <br/>
+
+
+        
         <h:form prependId="false" class="form-horizontal" role="form">
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nome" />
                 <div class="col-sm-7">
-                    <h:inputText class="form-control" id="nome" />
+                    <h:inputText class="form-control" id="nome" value="#{alunoController.aluno.nome}"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="CPF" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="cpf" />
+                    <h:inputText class="form-control" id="cpf" value="#{alunoController.aluno.CPF}">
+                        <f:validator validatorId="cpf.validador" />
+                    </h:inputText>
+                    <h:message for="cpf" style="color:red" />
                 </div>
             </div>
+
 
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Date De Nascimento" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="dtNasc" />
+                    <!--<h:inputText class="form-control" id="dtNasc" value="#{alunoController.aluno.dtNasc}"/>-->
                 </div>
             </div>
 
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
                 <div class="col-sm-7">
-                    <h:selectOneMenu class="form-control" id="sexo">
+                    <h:selectOneMenu class="form-control" id="sexo" value="#{alunoController.aluno.sexo}">
                         <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO" />
                         <f:selectItem itemLabel="FEMININO" itemValue="FEMININO" />
                     </h:selectOneMenu>
                 </div>
             </div>
+
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nacionalidade" />
                 <div class="col-sm-7">
-                    <h:selectOneMenu class="form-control" id="nacionalidade">
+                    <h:selectOneMenu class="form-control" id="nacionalidade" 
+                                     value="#{alunoController.aluno.nacionalidade}">
                         <f:selectItem itemLabel="Argentina" itemValue="ARG" />
                         <f:selectItem itemLabel="Peru" itemValue="PER" />
                         <f:selectItem itemLabel="Brasil" itemValue="BRA" />
@@ -74,21 +83,21 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Identidade" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="identidade" />
+                    <h:inputText class="form-control" id="identidade" value="#{alunoController.aluno.identidade}"/>
                 </div>
             </div>
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Número do Documento Militar" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="numeroDocumentoMilitar" />
+                    <h:inputText class="form-control" id="numeroDocumentoMilitar" value="#{alunoController.aluno.numeroDocumentoMilitar}"/>
                 </div>
             </div>
             <div class="form-group"> 
                 <div class="col-sm-offset-3 col-sm-7">
-                    <h:commandButton value="Salvar" class="btn btn-success" action="#{teste.teste()}"/>
+                    <h:commandButton value="Salvar" class="btn btn-success" action="#{alunoController.cadastrarAluno()}"/>
                 </div>
             </div>
-            
+
 
         </h:form>
     </h:body>

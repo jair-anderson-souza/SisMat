@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.jass2125</groupId>
-    <artifactId>AtividadePadroesCriacional</artifactId>
+    <artifactId>Matriculando</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>AtividadePadroesCriacional</name>
+    <name>Matriculando</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
