@@ -22,7 +22,8 @@ import javax.persistence.Id;
  */
 @Entity
 public class Aluno implements Serializable {
-    @Id 
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
@@ -37,15 +38,21 @@ public class Aluno implements Serializable {
     public Aluno() {
     }
 
-    public Aluno(String nome, SexoEnum sexo, Date dtNasc,
-            NacionalidadeEnum nacionalidade, String identidade, String CPF, String numeroDocumentoMilitar) {
+    public Aluno(String nome, SexoEnum sexo, Date dtNasc, NacionalidadeEnum nacionalidade, String identidade, String CPF) {
         this.nome = nome;
         this.sexo = sexo;
         this.dtNasc = dtNasc;
         this.nacionalidade = nacionalidade;
         this.identidade = identidade;
         this.CPF = CPF;
-        this.numeroDocumentoMilitar = numeroDocumentoMilitar;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -100,13 +107,7 @@ public class Aluno implements Serializable {
         return numeroDocumentoMilitar;
     }
 
-    @Override
-    public String toString() {
-        return "Aluno{nome= " + nome + ", sexo=" + sexo + ", dtNasc=" + dtNasc + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", CPF=" + CPF + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
-    }
-
     public void setNumeroDocumentoMilitar(String numeroDocumentoMilitar) {
         this.numeroDocumentoMilitar = numeroDocumentoMilitar;
     }
-
 }

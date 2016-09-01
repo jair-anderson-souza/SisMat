@@ -19,7 +19,7 @@ public class ActionFactory {
 
     public static Action getAction(HttpServletRequest request) {
         Map<String, Action> actions = new HashMap<>();
-        actions.put("cadastrarAlunx", new CadastrarAlunoAction());
+        actions.put("cadastrarAluno", new CadastrarAlunoAction());
         return actions.get(request.getParameter("action"));
     }
 }

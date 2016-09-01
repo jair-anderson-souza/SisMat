@@ -11,17 +11,7 @@ package io.github.jass2125.atividadepadroescriacional.core.util;
  */
 public enum SexoEnum {
 
-    MASCULINO("Masculino"), FEMININO("Feminino");
-
-    private String sexo;
-
-    private SexoEnum(String sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getSexo() {
-        return sexo;
-    }
+    MASCULINO, FEMININO;
 
     public static SexoEnum getMASCULINO() {
         return MASCULINO;

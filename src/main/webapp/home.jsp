@@ -23,19 +23,19 @@
         <br>
 
         <c:choose>
-            <c:when test="${sessionScope.error != null}">
+            <c:when test="${sessionScope.erro != null}">
                 <div class="alert alert-danger col-sm-offset-3 col-sm-7">
-                    ${sessionScope.error}
+                    ${sessionScope.erro}
                 </div>
             </c:when>
-            <c:when test="${sessionScope.success != null}">
+            <c:when test="${sessionScope.sucesso != null}">
                 <div class="alert alert-success col-sm-offset-3 col-sm-7">
-                    ${sessionScope.success}
+                    ${sessionScope.sucesso}
                 </div>
             </c:when>
         </c:choose>
 
-        <form action="front?action=cadastrarAlunx" method="post" class="form-horizontal" role="form">
+        <form action="front?action=cadastrarAluno" method="post" class="form-horizontal" role="form">
             <div class="form-group">
                 <label class="control-label col-sm-3" for="nome">Nome</label>
                 <div class="col-sm-7">

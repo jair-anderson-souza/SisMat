@@ -9,17 +9,17 @@ package io.github.jass2125.atividadepadroescriacional.core.exception;
  *
  * @author Anderson Souza
  */
-public class AlunxUnicoException extends Exception {
+public class AlunoUnicoException extends Exception {
 
-    public AlunxUnicoException(String message, Throwable cause) {
+    public AlunoUnicoException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public AlunxUnicoException(Throwable cause) {
+    public AlunoUnicoException(Throwable cause) {
         super(cause);
     }
 
-    public AlunxUnicoException(String message) {
+    public AlunoUnicoException(String message) {
         super(message);
     }
 

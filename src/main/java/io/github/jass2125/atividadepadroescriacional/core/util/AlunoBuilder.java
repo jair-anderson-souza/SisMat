@@ -7,10 +7,8 @@ package io.github.jass2125.atividadepadroescriacional.core.util;
 
 import br.com.caelum.stella.validation.CPFValidator;
 import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
-import io.github.jass2125.atividadepadroescriacional.core.exception.AlunaSexoException;
-import io.github.jass2125.atividadepadroescriacional.core.exception.CPFInvalidException;
+import io.github.jass2125.atividadepadroescriacional.core.exception.CPFInvalidoException;
 import io.github.jass2125.atividadepadroescriacional.core.exception.NomeInvalidoException;
-import io.github.jass2125.atividadepadroescriacional.core.exception.NumeroDocumentoMilitarVazioException;
 import java.sql.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,14 +30,14 @@ public class AlunoBuilder {
     public AlunoBuilder() {
     }
 
-    public AlunoBuilder CPFBuilder(String cpf) throws CPFInvalidException {
+    public AlunoBuilder CPFBuilder(String cpf) throws CPFInvalidoException {
         try {
             CPFValidator val = new CPFValidator();
             val.assertValid(cpf);
             this.CPF = cpf;
             return this;
         } catch (IllegalStateException e) {
-            throw new CPFInvalidException("O CPF digitado é inválido", e);
+            throw new CPFInvalidoException("O CPF digitado é inválido", e);
         }
     }
 
@@ -75,18 +73,17 @@ public class AlunoBuilder {
      * @throws AlunaSexoException
      * @throws NumeroDocumentoMilitarVazioException
      */
-    public AlunoBuilder numeroDocumentoMilitarBuilder(String numeroDocumentoMilitar) throws AlunaSexoException, NumeroDocumentoMilitarVazioException {
-        if (sexo.equals(SexoEnum.FEMININO) && !numeroDocumentoMilitar.trim().isEmpty()) {
-            this.numeroDocumentoMilitar = null;
-            throw new AlunaSexoException("Mulher nao precisa de documento militar!");
-
-        } else if (sexo.equals(SexoEnum.MASCULINO) && numeroDocumentoMilitar.trim().isEmpty()) {
-            throw new NumeroDocumentoMilitarVazioException("Homens precisam informar o numero do documento militar!");
-        }
-        this.numeroDocumentoMilitar = numeroDocumentoMilitar;
-        return this;
-    }
-
+//    public AlunoBuilder numeroDocumentoMilitarBuilder(String numeroDocumentoMilitar) throws AlunaSexoException, NumeroDocumentoMilitarVazioException {
+//        if (sexo.equals(SexoEnum.FEMININO) && !numeroDocumentoMilitar.trim().isEmpty()) {
+//            this.numeroDocumentoMilitar = null;
+//            throw new AlunaSexoException("Mulher nao precisa de documento militar!");
+//
+//        } else if (sexo.equals(SexoEnum.MASCULINO) && numeroDocumentoMilitar.trim().isEmpty()) {
+//            throw new NumeroDocumentoMilitarVazioException("Homens precisam informar o numero do documento militar!");
+//        }
+//        this.numeroDocumentoMilitar = numeroDocumentoMilitar;
+//        return this;
+//    }
     /**
      *
      * @param sexo
@@ -96,8 +93,9 @@ public class AlunoBuilder {
         this.sexo = sexo;
         return this;
     }
-
-    public Aluno getAlunx() {
-        return new Aluno(nome, sexo, dtNasc, nacionalidade, identidade, CPF, numeroDocumentoMilitar);
+    
+    public Aluno getAluno(){
+        return new Aluno(nome, sexo, dtNasc, nacionalidade, identidade, CPF);
     }
+
 }

@@ -20,10 +20,10 @@ public class ConnectionFactory {
     private Properties prop;
 
     public ConnectionFactory() {
-        this.url = "jdbc:mysql://localhost:3306/padroescriacionais";
+        this.url = "jdbc:postgresql://localhost:5432/militia";
         prop = new Properties();
-        prop.setProperty("user", "root");
-        prop.setProperty("password", "12345");
+        prop.setProperty("user", "postgres");
+        prop.setProperty("password", "123456");
         
     }
     

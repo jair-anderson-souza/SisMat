@@ -6,10 +6,9 @@
 package io.github.jass2125.atividadepadroescriacional.core.dao;
 
 import io.github.jass2125.atividadepadroescriacional.core.entity.Aluno;
-import io.github.jass2125.atividadepadroescriacional.core.exception.AlunxUnicoException;
-import io.github.jass2125.atividadepadroescriacional.core.util.ConnectionFactory;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import io.github.jass2125.atividadepadroescriacional.core.exception.AlunoUnicoException;
+import javax.ejb.Local;
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -17,25 +16,26 @@ import javax.persistence.PersistenceContext;
  *
  * @author Anderson Souza
  */
+@Stateless
+@Local(AlunoDao.class)
 public class AlunoDaoImpl implements AlunoDao {
 
-    private final ConnectionFactory facConnection;
-    @PersistenceContext
+    @PersistenceContext(name = "pu")
     private EntityManager em;
 
     public AlunoDaoImpl() {
-        facConnection = new ConnectionFactory();
     }
 
     /**
      *
      * @param aluno
-     * @throws AlunxUnicoException
+     * @throws io.github.jass2125.atividadepadroescriacional.core.exception.AlunoUnicoException
      */
     @Override
-    public void add(Aluno aluno) throws AlunxUnicoException {
+    public void add(Aluno aluno) throws AlunoUnicoException {
         try {
-            em.persist(aluno);
+            System.out.println("Teste de injeção");
+//            em.persist(aluno);
         } catch (Exception e) {
             e.printStackTrace();
 

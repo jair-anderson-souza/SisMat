@@ -31,7 +31,7 @@
         <property name="portNumber" value="5432"/>
         <property name="databaseName" value="matriculando"/>
         <property name="user" value="postgres"/>
-        <property name="password" value="postgres"/>
+        <property name="password" value="123456"/>
         <property name="URL" value="jdbc:postgresql://localhost:5432/matriculando"/>
         <property name="driverClass" value="org.postgresql.Driver"/>
     </jdbc-connection-pool>

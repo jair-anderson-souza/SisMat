@@ -9,20 +9,20 @@ package io.github.jass2125.atividadepadroescriacional.core.exception;
  *
  * @author Anderson Souza
  */
-public class CPFInvalidException extends Exception {
+public class CPFInvalidoException extends Exception {
 
-    public CPFInvalidException(String message) {
+    public CPFInvalidoException(String message) {
         super(message);
     }
 
-    public CPFInvalidException() {
+    public CPFInvalidoException() {
     }
 
-    public CPFInvalidException(String message, Throwable cause) {
+    public CPFInvalidoException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public CPFInvalidException(Throwable cause) {
+    public CPFInvalidoException(Throwable cause) {
         super(cause);
     }
 
