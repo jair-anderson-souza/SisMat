@@ -8,7 +8,6 @@ package io.github.jass2125.mat.controller;
 import io.github.jass2125.mat.core.entity.Aluno;
 import io.github.jass2125.atividadepadroescriacional.core.exception.AlunoUnicoException;
 import io.github.jass2125.atividadepadroescriacional.core.service.AlunoService;
-import io.github.jass2125.atividadepadroescriacional.core.util.AlunoBuilder;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;

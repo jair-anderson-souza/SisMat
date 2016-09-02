@@ -20,7 +20,7 @@ public class AlunoService {
     public void cadastrarAluno(Aluno aluno){
         
         
-        
+        System.out.println("Service Teste");
         
    }
 

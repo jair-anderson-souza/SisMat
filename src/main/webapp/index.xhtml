@@ -21,23 +21,29 @@
         <br/>
         <br/>
 
-
-
         <h:form prependId="false" class="form-horizontal" role="form">
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nome" />
                 <div class="col-sm-7">
-                    <h:inputText class="form-control" id="nome" value="#{alunoController.aluno.nome}">
+                    <h:inputText class="form-control" 
+                                 required="true"
+                                 requiredMessage="Este campo é obrigatório"
+                                 id="nome" 
+                                 value="#{alunoController.aluno.nome}">
                         <f:validator validatorId="nome.validador"/>
                     </h:inputText>
-                    <h:message for="nome" style="red"/>
+                    <h:message for="nome" style="color: red"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="CPF" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="cpf" value="#{alunoController.aluno.CPF}">
+                    <h:inputText class="form-control" 
+                                 required="true"
+                                 requiredMessage="Este campo é obrigatório"
+                                 id="cpf" 
+                                 value="#{alunoController.aluno.CPF}">
                         <f:validator validatorId="cpf.validador" />
                     </h:inputText>
                     <h:message for="cpf" style="color:red" />
@@ -48,15 +54,26 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Date De Nascimento" />
                 <div class="col-sm-7"> 
-                    <!--<f:-->
-                    <h:inputText class="form-control" id="dtNasc" value="#{alunoController.aluno.dtNasc}"/>
+                    <h:inputText class="form-control" 
+                                 required="true"
+                                 requiredMessage="Este campo é obrigatório"
+                                 id="dtNasc" 
+                                 value="#{alunoController.aluno.dtNasc}" 
+                                 converterMessage="A data precisa estar no formato dd/MM/yyyy">
+                        <f:convertDateTime pattern="dd/MM/yyyy"/>
+                    </h:inputText>
+                    <h:message for="dtNasc" style="color: red"/>
                 </div>
             </div>
 
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
                 <div class="col-sm-7">
-                    <h:selectOneMenu class="form-control" id="sexo" value="#{alunoController.aluno.sexo}">
+                    <h:selectOneMenu class="form-control" 
+                                     required="true"
+                                     requiredMessage="Este campo é obrigatório"
+                                     id="sexo" 
+                                     value="#{alunoController.aluno.sexo}">
                         <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO" />
                         <f:selectItem itemLabel="FEMININO" itemValue="FEMININO" />
                     </h:selectOneMenu>
@@ -66,7 +83,10 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nacionalidade" />
                 <div class="col-sm-7">
-                    <h:selectOneMenu class="form-control" id="nacionalidade" 
+                    <h:selectOneMenu class="form-control" 
+                                     id="nacionalidade" 
+                                     required="true"
+                                     requiredMessage="Este campo é obrigatório"
                                      value="#{alunoController.aluno.nacionalidade}">
                         <f:selectItem itemLabel="Argentina" itemValue="ARG" />
                         <f:selectItem itemLabel="Peru" itemValue="PER" />
@@ -87,13 +107,29 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Identidade" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="identidade" value="#{alunoController.aluno.identidade}"/>
+                    <h:inputText class="form-control" 
+                                 required="true"
+                                 requiredMessage="Este cam  po é obrigatório"
+                                 id="identidade" 
+                                 value="#{alunoController.aluno.identidade}" 
+                                 converterMessage="O campo número da identidade deve possuir apenas números.">
+                        <f:convertNumber type="number" groupingUsed="false" integerOnly="true" />
+                    </h:inputText>
+                    <h:message for="identidade" style="color: red" />
                 </div>
             </div>
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Número do Documento Militar" />
                 <div class="col-sm-7"> 
-                    <h:inputText class="form-control" id="numeroDocumentoMilitar" value="#{alunoController.aluno.numeroDocumentoMilitar}"/>
+                    <h:inputText required="true"
+                                 requiredMessage="Este campo é obrigatório"
+                                 class="form-control" 
+                                 id="numeroDocumentoMilitar" 
+                                 value="#{alunoController.aluno.numeroDocumentoMilitar}" 
+                                 converterMessage="O campo número do documento militar deve possuir apenas números.">
+                        <f:convertNumber type="number" integerOnly="true" groupingUsed="false" />
+                    </h:inputText>
+                    <h:message for="numeroDocumentoMilitar" style="color: red"/>
                 </div>
             </div>
             <div class="form-group"> 

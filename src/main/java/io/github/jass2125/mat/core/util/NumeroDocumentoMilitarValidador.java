@@ -5,8 +5,7 @@
  */
 package io.github.jass2125.mat.core.util;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.math.BigInteger;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -18,25 +17,22 @@ import javax.faces.validator.ValidatorException;
  *
  * @author Anderson Souza
  */
-@FacesValidator("nome.validador")
-public class ValidadorNome implements Validator {
+@FacesValidator("numero.documento.militar.validador")
+public class NumeroDocumentoMilitarValidador implements Validator {
 
-    private Pattern pattern;
-    private Matcher matcher;
+    private BigInteger numeroDocumentoMilitar;
     private FacesMessage message;
-    
-    public ValidadorNome() {
-        this.pattern = Pattern.compile("^[a-zA-Zã-ũá-úà-àâ-ûÃ-ŨÁ-ÚÀ-ÙÂ-Û}]+ {1}[a-zA-Z0-9Â-Ûâ-û]+$");
-    }
 
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
-        String nome = (String) String.valueOf(value);
-        matcher = pattern.matcher(nome);
-        if (!matcher.find()) {
-            this.message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "O nome precisa ter pelo menos um sobrenome separado por espaço!");
+        String val = (String) value;
+        try {
+            numeroDocumentoMilitar = new BigInteger(val);
+        } catch (NumberFormatException e) {
+            this.message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "O número do número do documento militar deve possuir apenas números.");
             throw new ValidatorException(message);
         }
+
     }
 
 }
