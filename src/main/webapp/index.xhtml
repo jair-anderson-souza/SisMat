@@ -10,12 +10,16 @@
         <!-- Latest compiled JavaScript -->
         <script src="js/bootstrap.min.  js"></script>
         <title>Cadastro de Alunos</title>
+        
         <script type="text/javascript">
-            function getVal() {
+            function bloqueiaCampoDeDocumentoMilitar() {
                 var sexo = document.getElementById("sexo");
                 console.log(sexo.value);
                 if (sexo.value === 'FEMININO') {
-                    $('#identidade').attr('disabled=true', true);
+                    document.getElementById('numeroDocumentoMilitar').value = null;
+                    $('#numeroDocumentoMilitar').attr('readonly', true);
+                }else{
+                    $('#numeroDocumentoMilitar').attr('readonly', false);
                 }
             }
             ;
@@ -85,7 +89,7 @@
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
                 <div class="col-sm-7">
                     <h:selectOneMenu class="form-control" 
-                                     onchange="getVal(this)"
+                                     onchange="bloqueiaCampoDeDocumentoMilitar(this)"
                                      required="true"
                                      requiredMessage="Este campo é obrigatório"
                                      id="sexo"
@@ -137,9 +141,7 @@
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Número do Documento Militar" />
                 <div class="col-sm-7"> 
-                    <h:inputText required="true"
-                                 requiredMessage="Este campo é obrigatório"
-                                 class="form-control" 
+                    <h:inputText class="form-control" 
                                  id="numeroDocumentoMilitar"
                                  value="#{alunoController.aluno.numeroDocumentoMilitar}" 
                                  converterMessage="O campo número do documento militar deve possuir apenas números.">
