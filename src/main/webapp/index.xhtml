@@ -10,6 +10,17 @@
         <!-- Latest compiled JavaScript -->
         <script src="js/bootstrap.min.  js"></script>
         <title>Cadastro de Alunos</title>
+        <script type="text/javascript">
+            function getVal() {
+                var sexo = document.getElementById("sexo");
+                console.log(sexo.value);
+                if (sexo.value === 'FEMININO') {
+                    $('#identidade').attr('disabled=true', true);
+                }
+            }
+            ;
+        </script>
+
     </h:head>
     <h:body>
 
@@ -70,9 +81,10 @@
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
                 <div class="col-sm-7">
                     <h:selectOneMenu class="form-control" 
+                                     onchange="getVal(this)"
                                      required="true"
                                      requiredMessage="Este campo é obrigatório"
-                                     id="sexo" 
+                                     id="sexo"
                                      value="#{alunoController.aluno.sexo}">
                         <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO" />
                         <f:selectItem itemLabel="FEMININO" itemValue="FEMININO" />
@@ -124,7 +136,7 @@
                     <h:inputText required="true"
                                  requiredMessage="Este campo é obrigatório"
                                  class="form-control" 
-                                 id="numeroDocumentoMilitar" 
+                                 id="numeroDocumentoMilitar"
                                  value="#{alunoController.aluno.numeroDocumentoMilitar}" 
                                  converterMessage="O campo número do documento militar deve possuir apenas números.">
                         <f:convertNumber type="number" integerOnly="true" groupingUsed="false" />
@@ -140,6 +152,7 @@
 
 
         </h:form>
+
     </h:body>
 </html>
 
