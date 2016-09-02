@@ -5,8 +5,8 @@
  */
 package io.github.jass2125.mat.core.entity;
 
-import io.github.jass2125.atividadepadroescriacional.core.util.NacionalidadeEnum;
-import io.github.jass2125.atividadepadroescriacional.core.util.SexoEnum;
+import io.github.jass2125.mat.core.utils.NacionalidadeEnum;
+import io.github.jass2125.mat.core.utils.SexoEnum;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;

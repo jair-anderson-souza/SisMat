@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package io.github.jass2125.atividadepadroescriacional.core.util;
+package io.github.jass2125.mat.core.utils;
 
 /**
  *

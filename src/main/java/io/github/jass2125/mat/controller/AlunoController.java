@@ -6,7 +6,6 @@
 package io.github.jass2125.mat.controller;
 
 import io.github.jass2125.mat.core.entity.Aluno;
-import io.github.jass2125.atividadepadroescriacional.core.exception.AlunoUnicoException;
 import io.github.jass2125.mat.core.service.AlunoService;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
@@ -42,7 +41,7 @@ public class AlunoController implements Serializable {
     @PreDestroy
     public void destroy() {
         this.aluno = null;
-        
+
     }
 
     public Aluno getAluno() {
@@ -53,7 +52,7 @@ public class AlunoController implements Serializable {
         this.aluno = aluno;
     }
 
-    public String cadastrarAluno() throws AlunoUnicoException {
+    public String cadastrarAluno() {
         try {
             service.cadastrarAluno(aluno);
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "O aluno foi salvo com sucesso.");
