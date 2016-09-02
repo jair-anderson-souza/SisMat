@@ -31,11 +31,6 @@ public class AlunoBuilder {
     }
 
     public AlunoBuilder nomeBuilder(String nome) throws NomeInvalidoException {
-        Pattern pattern = Pattern.compile("^[a-zA-Zã-ũá-úà-àâ-ûÃ-ŨÁ-ÚÀ-ÙÂ-Û}]+ {1}[a-zA-Z0-9Â-Ûâ-û]+$");
-        Matcher matcher = pattern.matcher(nome);
-        if (!matcher.find()) {
-            throw new NomeInvalidoException("O nome precisa ter pelo menos um sobrenome separado por espaço!");
-        }
         this.nome = nome;
         return this;
     }
@@ -66,6 +61,10 @@ public class AlunoBuilder {
     }
 
     public Aluno getAluno() {
+        return new Aluno(nome, sexo, nacionalidade, identidade, cpf, numeroDocumentoMilitar);
+    }
+
+    public Aluno getAluna() {
         return new Aluno(nome, sexo, dtNasc, nacionalidade, identidade, cpf);
     }
 

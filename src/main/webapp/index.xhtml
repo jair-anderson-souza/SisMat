@@ -32,6 +32,10 @@
         <br/>
         <br/>
 
+<!--        <div class="container-fluid">
+            <h:messages id="message" style="color: blue"/>
+        </div>-->
+        
         <h:form prependId="false" class="form-horizontal" role="form">
             <div class="form-group">
                 <h:outputText class="control-label col-sm-3" value="Nome" />
@@ -147,6 +151,7 @@
             <div class="form-group"> 
                 <div class="col-sm-offset-3 col-sm-7">
                     <h:commandButton value="Salvar" class="btn btn-success" action="#{alunoController.cadastrarAluno()}"/>
+                    <h:messages id="message" style="color: blue; font-family: Arial; font-size: 30px;" class="alert" />
                 </div>
             </div>
 

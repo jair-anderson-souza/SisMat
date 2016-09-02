@@ -29,28 +29,28 @@ public class Aluno implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @Column(name = "nome", nullable = false, unique = false, length = 40)
     private String nome;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(name = "sexo", nullable = false, unique = false, length = 20)
     private SexoEnum sexo;
-    
+
     @Temporal(TemporalType.DATE)
     @Column(name = "dtNasc", nullable = false, unique = false, length = 20)
     private Date dtNasc;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(name = "nacionalidade", nullable = false, unique = false, length = 20)
     private NacionalidadeEnum nacionalidade;
-    
+
     @Column(name = "identidade", nullable = false, unique = false, length = 20)
     private String identidade;
-    
+
     @Column(name = "cpf", nullable = false, unique = false, length = 20)
     private String cpf;
-    
+
     @Column(name = "numeroDoDocumentoMilitar", nullable = false, unique = false, length = 20)
     private String numeroDocumentoMilitar;
 
@@ -61,6 +61,15 @@ public class Aluno implements Serializable {
         this.nacionalidade = nacionalidade;
         this.identidade = identidade;
         this.cpf = CPF;
+    }
+
+    public Aluno(String nome, SexoEnum sexo, NacionalidadeEnum nacionalidade, String identidade, String cpf, String numeroDocumentoMilitar) {
+        this.nome = nome;
+        this.sexo = sexo;
+        this.nacionalidade = nacionalidade;
+        this.identidade = identidade;
+        this.cpf = cpf;
+        this.numeroDocumentoMilitar = numeroDocumentoMilitar;
     }
 
     public Aluno() {
