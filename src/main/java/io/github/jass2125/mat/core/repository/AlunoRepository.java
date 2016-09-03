@@ -28,7 +28,7 @@ public class AlunoRepository {
         try {
             em.persist(aluno);
         } catch (Exception e) {
-            throw new PersistenciaException(e, "Não foi possível cadastrar o usuário");
+            throw new PersistenciaException(e, "Verifique os dados e tente novamente.");
         }
     }
 }
