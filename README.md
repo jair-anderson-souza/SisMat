@@ -12,5 +12,5 @@ Os documentos necessários para matrícula são:
 • Número do documento militar (para o sexo masculino e a partir de 18 anos)<br>
 		
 Restrições do Sistema <br>
-• O sistema deve validar se o nome do aluno é válido<br> (não pode conter núumeros e tem que ter pelo menos 1 sobrenome).<br> Também deve verificar se o CPF digitado é válido e se o documento militar foi digitado no caso de ter selecionado o sexo masculino na hora de fazer a matrícula. <br>
+• O sistema deve validar se o nome do aluno é válido<br> (não pode conter núumeros e tem que ter pelo menos 1 sobrenome).<br> Também deve verificar se o CPF digitado é válido <br>
 • A nacionalidade do aluno só podem conter os países da América do Sul como valores válidos. Para a 				identidade não é necessário validação.
