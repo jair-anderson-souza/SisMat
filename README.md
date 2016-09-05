@@ -1,4 +1,4 @@
-# Sistema de Matricula IFPB
+# Sistema de Matricula IFPB - SisMat
 Sistema de Matrícula do IFPB
 Descrição 
 O IFPB - Campus Cajazeiras está recebendo muitos alunos por semestre e lhe pediu para criar uma versão inicial de um sistema para realização de matrículas que facilite o seu processo.
