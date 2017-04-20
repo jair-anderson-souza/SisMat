@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>io.github.jass2125</groupId>
-    <artifactId>sis-mat</artifactId>
+    <artifactId>SisMat</artifactId>
     <version>2.0</version>
     <packaging>war</packaging>
 
-    <name>sis-mat</name>
+    <name>SisMat</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

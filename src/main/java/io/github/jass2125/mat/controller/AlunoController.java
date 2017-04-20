@@ -7,7 +7,6 @@ package io.github.jass2125.mat.controller;
 
 import io.github.jass2125.mat.core.entity.Aluno;
 import io.github.jass2125.mat.core.service.AlunoService;
-import io.github.jass2125.mat.core.utils.SexoEnum;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

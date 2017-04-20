@@ -11,7 +11,6 @@ import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 
 /**
  *
@@ -21,7 +20,7 @@ import javax.persistence.PersistenceContextType;
 @LocalBean
 public class AlunoRepository {
 
-    @PersistenceContext(type = PersistenceContextType.TRANSACTION)
+    @PersistenceContext
     private EntityManager em;
 
     public void salvar(Aluno aluno) throws PersistenciaException {
