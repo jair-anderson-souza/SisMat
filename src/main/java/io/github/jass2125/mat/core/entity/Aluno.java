@@ -9,6 +9,7 @@ import io.github.jass2125.mat.core.utils.NacionalidadeEnum;
 import io.github.jass2125.mat.core.utils.SexoEnum;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -37,9 +38,8 @@ public class Aluno implements Serializable {
     @Column(name = "sexo", nullable = false, unique = false, length = 20)
     private SexoEnum sexo;
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "dtNasc", nullable = false, unique = false, length = 20)
-    private Date dtNasc;
+    private String dtNasc;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "nacionalidade", nullable = false, unique = false, length = 20)
@@ -54,7 +54,7 @@ public class Aluno implements Serializable {
     @Column(name = "numeroDoDocumentoMilitar", nullable = false, unique = false, length = 20)
     private String numeroDocumentoMilitar;
 
-    public Aluno(String nome, SexoEnum sexo, Date dtNasc, NacionalidadeEnum nacionalidade, String identidade, String CPF) {
+    public Aluno(String nome, SexoEnum sexo, String dtNasc, NacionalidadeEnum nacionalidade, String identidade, String CPF) {
         this.nome = nome;
         this.sexo = sexo;
         this.dtNasc = dtNasc;
@@ -99,11 +99,11 @@ public class Aluno implements Serializable {
         this.sexo = sexo;
     }
 
-    public Date getDtNasc() {
+    public String getDtNasc() {
         return dtNasc;
     }
 
-    public void setDtNasc(Date dtNasc) {
+    public void setDtNasc(String dtNasc) {
         this.dtNasc = dtNasc;
     }
 
@@ -123,12 +123,12 @@ public class Aluno implements Serializable {
         this.identidade = identidade;
     }
 
-    public String getCPF() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCPF(String CPF) {
-        this.cpf = CPF;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public String getNumeroDocumentoMilitar() {
@@ -137,6 +137,28 @@ public class Aluno implements Serializable {
 
     public void setNumeroDocumentoMilitar(String numeroDocumentoMilitar) {
         this.numeroDocumentoMilitar = numeroDocumentoMilitar;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Aluno other = (Aluno) obj;
+        return Objects.equals(this.id, other.id);
     }
 
     @Override

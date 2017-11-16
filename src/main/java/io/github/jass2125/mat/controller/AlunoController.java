@@ -7,7 +7,6 @@ package io.github.jass2125.mat.controller;
 
 import io.github.jass2125.mat.core.entity.Aluno;
 import io.github.jass2125.mat.core.service.AlunoService;
-import io.github.jass2125.mat.core.utils.SexoEnum;
 import java.io.Serializable;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -56,10 +55,10 @@ public class AlunoController implements Serializable {
     public String cadastrarAluno() {
         try {
             service.cadastrarAluno(aluno);
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "O aluno foi salvo com sucesso.");
+            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "O aluno foi salvo com sucesso.", null);
             context.addMessage("message", message);
         } catch (PersistenceException e) {
-            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Ocorreu um erro.");
+            message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Ocorreu um erro.", null);
             context.addMessage("message", message);
         }
         context.getExternalContext().getFlash().setKeepMessages(true);

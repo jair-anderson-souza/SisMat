@@ -2,7 +2,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <!-- ^[a-zA-Zã-ũá-úà-àâ-ûÃ-ŨÁ-ÚÀ-ÙÂ-Û}]+ {1}[a-zA-ZÂ-Ûâ-û]+$  -->
     <h:head>
         <title>Cadastro de Alunos</title>
     </h:head>
@@ -14,10 +17,11 @@
         <br/>
         <br/>
         <br/>
-
-        <!--        <div class="container-fluid">
-                    <h:messages id="message" style="color: blue"/>
-                </div>-->
+        <div class="container-fluid bg-1 text-center">
+            <div class="form-group">
+                <h:message id="message" for="message" class="alert" />
+            </div>
+        </div>
 
         <h:form prependId="false" class="form-horizontal" role="form">
 
@@ -30,7 +34,6 @@
                                  id="nome" 
                                  value="#{alunoController.aluno.nome}">
                     </h:inputText>
-                    <h:message for="nome" style="color: red"/>
                 </div>
             </div>
 
@@ -41,13 +44,14 @@
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="CPF" />
                 <div class="col-sm-8"> 
-                    <h:inputText class="form-control" 
+                    <p:inputMask styleClass="form-control" 
                                  required="true"
                                  requiredMessage="Este campo é obrigatório"
                                  id="cpf" 
-                                 value="#{alunoController.aluno.CPF}">
-                        <f:validator validatorId="cpf.validador" />
-                    </h:inputText>
+                                 value="#{alunoController.aluno.cpf}"
+                                 mask="999.999.999-99">
+                        <f:validator validatorId="cpf.validador"/>
+                    </p:inputMask>
                     <h:message for="cpf" style="color:red" />
                 </div>
             </div>
@@ -59,22 +63,19 @@
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Date De Nascimento" />
                 <div class="col-sm-8"> 
-                    <h:inputText class="form-control" 
+                    <p:inputMask styleClass="form-control" 
                                  required="true"
                                  requiredMessage="Este campo é obrigatório"
-                                 id="dtNasc" 
+                                 id="dtNasc"
                                  value="#{alunoController.aluno.dtNasc}" 
-                                 converterMessage="A data precisa estar no formato dd/MM/yyyy">
-                        <f:convertDateTime pattern="dd/MM/yyyy"/>
-                    </h:inputText>
-                    <h:message for="dtNasc" style="color: red"/>
+                                 mask="99/99/9999"/>
+                    <!--<h:message for="dtNasc" style="color: red"/>-->
                 </div>
             </div>
 
             <br/>
             <br/>
             <br/>
-
 
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
@@ -94,7 +95,7 @@
             <br/>
             <br/>
             <br/>
-            
+
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Nacionalidade" />
                 <div class="col-sm-8">
@@ -122,7 +123,7 @@
             <br/>
             <br/>
             <br/>
-            
+
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Identidade" />
                 <div class="col-sm-8"> 
@@ -137,11 +138,11 @@
                     <h:message for="identidade" style="color: red" />
                 </div>
             </div>
-            
+
             <br/>
             <br/>
             <br/>
-            
+
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Número do Documento Militar" />
                 <div class="col-sm-8"> 
@@ -164,7 +165,6 @@
             <div class="form-horizontal"> 
                 <div class="col-sm-offset-3 col-sm-8">
                     <h:commandButton value="Salvar" class="btn btn-success" action="#{alunoController.cadastrarAluno()}"/>
-                    <h:messages id="message" style="color: blue; font-family: Arial; font-size: 30px;" class="alert" />
                 </div>
             </div>
 
