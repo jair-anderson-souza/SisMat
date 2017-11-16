@@ -133,7 +133,7 @@
                                  id="identidade" 
                                  value="#{alunoController.aluno.identidade}" 
                                  converterMessage="O campo número da identidade deve possuir apenas números.">
-                        <f:convertNumber type="number" groupingUsed="false" integerOnly="true" />
+                        <f:validator validatorId="identidade.validator"/>
                     </h:inputText>
                     <h:message for="identidade" style="color: red" />
                 </div>
@@ -152,7 +152,7 @@
                                  id="numeroDocumentoMilitar"
                                  value="#{alunoController.aluno.numeroDocumentoMilitar}" 
                                  converterMessage="O campo número do documento militar deve possuir apenas números.">
-                        <f:convertNumber type="number" integerOnly="true" groupingUsed="false" />
+                        <f:validator validatorId="numero.documento.militar.validador" />
                     </h:inputText>
                     <h:message for="numeroDocumentoMilitar" style="color: red"/>
                 </div>
@@ -174,25 +174,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="js/bootstrap.min.js"></script>
-        <!--        <script type="text/javascript">
-                                                 function bloqueiaCampoDeDocumentoMilitar() {
-                                                     var sexo = document.getElementById("sexo");
-                                                     var docMilitar = document.getElementById('numeroDocumentoMilitar');
-                                                     if (sexo.value === 'FEMININO') {
-        //                                                 docMilitar.value = null;
-                                                         $(docMilitar).after('<p id="aviso-obrigatorio" style="color: red;">Este campo não é obrigatório para pessoas do sexo FEMININO.</p>');
-                                                         $(docMilitar).required = false;
-        //                                                 docMilitar.required = 'false';
-        //                                                 removeProperty('required');
-                                                     } else {
-                                                         $('#aviso-obrigatorio').remove();
-                                                         $(docMilitar).required = true;
-        //                                                 docMilitar.required = 'true';
-        //                                                 $('#numeroDocumentoMilitar').attr('readonly', false);
-                                                     }
-                                                 }
-                                                 ;
-                </script>-->
     </h:body>
 </html>
 
