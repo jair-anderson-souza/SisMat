@@ -51,8 +51,11 @@ public class AlunoController implements Serializable {
     public void verificaSeNumeroDoDocumentoEstaPreenchido() {
         String[] dataQuebrada = aluno.getDataDeNascimento().split("/");
         Integer ano = Integer.parseInt(dataQuebrada[2]);
-        if ((aluno.getSexo().equals(SexoEnum.MASCULINO)) && (LocalDate.now().getYear() - ano >= 18)) {
-            if (this.aluno.getNumeroDocumentoMilitar() == null) {
+        Integer mes = Integer.parseInt(dataQuebrada[1]);
+        Integer dia = Integer.parseInt(dataQuebrada[0]);
+        if ((aluno.getSexo().equals(SexoEnum.MASCULINO))
+                && (LocalDate.now().getYear() - ano >= 18 && LocalDate.now().getMonthValue() - mes >= 0 && LocalDate.now().getDayOfMonth() - dia >= 0)) {
+            if (this.aluno.getNumeroDocumentoMilitar() == null || this.aluno.getNumeroDocumentoMilitar().equals("")) {
                 throw new RuntimeException("O número do documento militar deve ser preenchido!!!");
             }
         }
@@ -81,7 +84,6 @@ public class AlunoController implements Serializable {
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "O aluno foi salvo com sucesso.", null);
             context.addMessage("message", message);
         } catch (RuntimeException e) {
-            e.printStackTrace();
             message = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null);
             context.addMessage("message", message);
         }

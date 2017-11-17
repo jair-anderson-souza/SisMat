@@ -35,7 +35,7 @@ public class IdentidadeValidador implements Validator {
             if(!allMatch || valor[1].length() != 2){
                 throw new LetterException("Você não preencheu o Órgão Emissor corretamente, siga o exemplo!!!");
             }
-        } catch (NumberFormatException | LetterException e) {
+        } catch (ArrayIndexOutOfBoundsException | NumberFormatException | LetterException e) {
             this.message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Você não preencheu o Órgão Emissor corretamente, siga o exemplo!!!");
             throw new ValidatorException(message);
         }
