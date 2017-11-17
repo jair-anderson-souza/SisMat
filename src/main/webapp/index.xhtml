@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <h:form prependId="false" class="form-horizontal" role="form">
+        <h:form prependId="false" class="form-horizontal" role="form" id="form">
 
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Nome" />
@@ -67,9 +67,8 @@
                                  required="true"
                                  requiredMessage="Este campo é obrigatório"
                                  id="dtNasc"
-                                 value="#{alunoController.aluno.dtNasc}" 
+                                 value="#{alunoController.aluno.dataDeNascimento}" 
                                  mask="99/99/9999"/>
-                    <!--<h:message for="dtNasc" style="color: red"/>-->
                 </div>
             </div>
 
@@ -81,11 +80,11 @@
                 <h:outputText class="control-label col-sm-3" value="Sexo" /> 
                 <div class="col-sm-8">
                     <h:selectOneMenu class="form-control" 
-                                     onchange="bloqueiaCampoDeDocumentoMilitar(this)"
                                      required="true"
                                      requiredMessage="Este campo é obrigatório"
                                      id="sexo"
                                      value="#{alunoController.aluno.sexo}">
+                        <f:selectItem itemLabel="" itemValue="" />
                         <f:selectItem itemLabel="MASCULINO" itemValue="MASCULINO" />
                         <f:selectItem itemLabel="FEMININO" itemValue="FEMININO" />
                     </h:selectOneMenu>
@@ -146,9 +145,7 @@
             <div class="form-horizontal">
                 <h:outputText class="control-label col-sm-3" value="Número do Documento Militar" />
                 <div class="col-sm-8"> 
-                    <h:inputText required="true"
-                                 requiredMessage="Campo obrigatório para pessoas do sexo Masculino."
-                                 class="form-control" 
+                    <h:inputText class="form-control" 
                                  id="numeroDocumentoMilitar"
                                  value="#{alunoController.aluno.numeroDocumentoMilitar}" 
                                  converterMessage="O campo número do documento militar deve possuir apenas números.">

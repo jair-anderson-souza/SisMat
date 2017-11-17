@@ -8,6 +8,8 @@ package io.github.jass2125.mat.core.entity;
 import io.github.jass2125.mat.core.utils.NacionalidadeEnum;
 import io.github.jass2125.mat.core.utils.SexoEnum;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -19,6 +21,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 /**
  *
@@ -38,8 +41,8 @@ public class Aluno implements Serializable {
     @Column(name = "sexo", nullable = false, unique = false, length = 20)
     private SexoEnum sexo;
 
-    @Column(name = "dtNasc", nullable = false, unique = false, length = 20)
-    private String dtNasc;
+    @Column(name = "dataDeNascimento", nullable = false, unique = false, length = 20)
+    private String dataDeNascimento;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "nacionalidade", nullable = false, unique = false, length = 20)
@@ -54,22 +57,22 @@ public class Aluno implements Serializable {
     @Column(name = "numeroDoDocumentoMilitar", nullable = false, unique = false, length = 20)
     private String numeroDocumentoMilitar;
 
-    public Aluno(String nome, SexoEnum sexo, String dtNasc, NacionalidadeEnum nacionalidade, String identidade, String CPF) {
-        this.nome = nome;
-        this.sexo = sexo;
-        this.dtNasc = dtNasc;
-        this.nacionalidade = nacionalidade;
-        this.identidade = identidade;
-        this.cpf = CPF;
+    public Aluno(String nome, SexoEnum sexo, String dtNasc, NacionalidadeEnum nacionalidade, String dataDeNascimento, String identidade, String CPF) {
+        setNome(nome);
+        setSexo(sexo);
+        setDataDeNascimento(dataDeNascimento);
+        setNacionalidade(nacionalidade);
+        setIdentidade(identidade);
+        setCpf(CPF);
     }
 
     public Aluno(String nome, SexoEnum sexo, NacionalidadeEnum nacionalidade, String identidade, String cpf, String numeroDocumentoMilitar) {
-        this.nome = nome;
-        this.sexo = sexo;
-        this.nacionalidade = nacionalidade;
-        this.identidade = identidade;
-        this.cpf = cpf;
-        this.numeroDocumentoMilitar = numeroDocumentoMilitar;
+        setNome(nome);
+        setSexo(sexo);
+        setNacionalidade(nacionalidade);
+        setIdentidade(identidade);
+        setCpf(cpf);
+        setNumeroDocumentoMilitar(numeroDocumentoMilitar);
     }
 
     public Aluno() {
@@ -99,12 +102,12 @@ public class Aluno implements Serializable {
         this.sexo = sexo;
     }
 
-    public String getDtNasc() {
-        return dtNasc;
+    public String getDataDeNascimento() {
+        return dataDeNascimento;
     }
 
-    public void setDtNasc(String dtNasc) {
-        this.dtNasc = dtNasc;
+    public void setDataDeNascimento(String dataDeNascimento) {
+        this.dataDeNascimento = dataDeNascimento;
     }
 
     public NacionalidadeEnum getNacionalidade() {
@@ -141,8 +144,8 @@ public class Aluno implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 23 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -163,7 +166,7 @@ public class Aluno implements Serializable {
 
     @Override
     public String toString() {
-        return "Aluno{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dtNasc=" + dtNasc + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", CPF=" + cpf + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
+        return "Aluno{" + "id=" + id + ", nome=" + nome + ", sexo=" + sexo + ", dataDeNascimento=" + dataDeNascimento + ", nacionalidade=" + nacionalidade + ", identidade=" + identidade + ", cpf=" + cpf + ", numeroDocumentoMilitar=" + numeroDocumentoMilitar + '}';
     }
 
 }
